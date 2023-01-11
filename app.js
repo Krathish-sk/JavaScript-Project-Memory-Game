@@ -84,8 +84,9 @@ createBoard();
 
 function checkMatch(){
     if(cardsChoosen[0] == cardsChoosen[1]){
-        alert("You found a match !!!");
+        alert("You found a match 😃😃");
     }
+    alert('Try again 🥲🥲')
 }
 
 
@@ -93,6 +94,8 @@ function flipCard(){
     const cardID = this.getAttribute('data-id');
     cardsChoosen.push(cardArray[cardID].name);
     this.setAttribute('src',cardArray[cardID].img)
-    
+    if(cardsChoosen.length == 2){
+        setTimeout(checkMatch,500)
+    }
 
 }
