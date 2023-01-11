@@ -16,7 +16,7 @@ const cardArray=[{
 },
 {
     name:'ice-creame',
-    img:'Images/ice-creame.png'
+    img:'Images/ice-cream.png'
 },
 {
     name:'milkshake',
@@ -48,7 +48,7 @@ const cardArray=[{
 },
 {
     name:'ice-creame',
-    img:'Images/ice-creame.png'
+    img:'Images/ice-cream.png'
 },
 {
     name:'milkshake',
@@ -63,6 +63,8 @@ const cardArray=[{
     img:'Images/white.png'
 }
 ]
+
+const cardsChoosen=[];
 
 cardArray.sort(() => 0.5 - Math.random());
 
@@ -81,9 +83,9 @@ const grid = document.querySelector('#grid');
 createBoard();
 
 function flipCard(){
-    console.log(cardArray)
     const cardID = this.getAttribute('data-id');
-    console.log(cardArray[cardID].name)
-    console.log(cardID);
+    cardsChoosen.push(cardArray[cardID].name);
+    this.setAttribute('src',cardArray[cardID].img)
+
 
 }
