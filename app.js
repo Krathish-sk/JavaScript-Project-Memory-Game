@@ -1,7 +1,4 @@
-const cardArray=[{
-    name:'blank',
-    img:'Images/blank.png'
-},
+const cardArray=[
 {
     name:'cheeseburger',
     img:'IMages/cheeseburger.png'
@@ -27,14 +24,6 @@ const cardArray=[{
     img:'Images/pizza.png'
 },
 {
-    name:'white',
-    img:'Images/white.png'
-},
-{
-    name:'blank',
-    img:'Images/blank.png'
-},
-{
     name:'cheeseburger',
     img:'IMages/cheeseburger.png'
 },
@@ -57,17 +46,14 @@ const cardArray=[{
 {
     name:'pizza',
     img:'Images/pizza.png'
-},
-{
-    name:'white',
-    img:'Images/white.png'
 }
 ]
 
 const cardsChoosen=[];
+const cardsChoosenIDs=[];
 
 cardArray.sort(() => 0.5 - Math.random());
-
+console.log(cardArray)
 const grid = document.querySelector('#grid');
 
   //create your board
@@ -80,22 +66,31 @@ const grid = document.querySelector('#grid');
       grid.appendChild(card)
     }
   }
-createBoard();
+
 
 function checkMatch(){
+    const cards = document.querySelectorAll('img')
     if(cardsChoosen[0] == cardsChoosen[1]){
+        
         alert("You found a match 😃😃");
+        cards[cardsChoosenIDs[0]].setAttribute('src','Images/white.png');
+        cards[cardsChoosenIDs[1]].setAttribute('src','Images/white.png');
     }
-    alert('Try again 🥲🥲')
+    else{
+        alert('Try again 🥲🥲')
+    }
 }
 
 
 function flipCard(){
     const cardID = this.getAttribute('data-id');
     cardsChoosen.push(cardArray[cardID].name);
+    cardsChoosenIDs.push(cardID);
     this.setAttribute('src',cardArray[cardID].img)
     if(cardsChoosen.length == 2){
-        setTimeout(checkMatch,500)
+        setTimeout(checkMatch(),500)
     }
 
 }
+
+createBoard();
