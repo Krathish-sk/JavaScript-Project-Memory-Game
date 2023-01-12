@@ -1,8 +1,15 @@
 let popUp = document.getElementById('popUp')
+let popRemove = document.getElementById('removePop');
+
 function openPopUp(){
     popUp.classList.add("open-popUp");
 }
 
+function closePop(){
+    popUp.classList.remove("open-popUp")
+}
+
+popRemove.addEventListener('click', closePop);
 
 
 
