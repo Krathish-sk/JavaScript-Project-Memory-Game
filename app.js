@@ -48,14 +48,17 @@ const cardArray=[
     img:'Images/pizza.png'
 }
 ]
+cardArray.sort(() => 0.5 - Math.random());
+const grid = document.querySelector('#grid');
+const result = document.querySelector('#result');
 
 let cardsChoosen=[];
 let cardsChoosenIDs=[];
 const cardsWon =[];
 
-cardArray.sort(() => 0.5 - Math.random());
+
 console.log(cardArray)
-const grid = document.querySelector('#grid');
+
 
   //create your board
   function createBoard() {
@@ -73,12 +76,14 @@ function checkMatch(){
     const cards = document.querySelectorAll('#grid img')
     const optionOneId = cardsChoosenIDs[0];
     const optionTwoId = cardsChoosenIDs[1];
-
-    if(optionOneId == optionTwoId)
+    console.log(optionOneId);
+    console.log(optionTwoId);
+    if(optionOneId == optionTwoId){
+        cards[optionOneId].setAttribute('src','Images/blank.png');
+        cards[optionTwoId].setAttribute('src','Images/blank.png');
         alert('Oops, you clicked the same image 🤭🤭!!');
-
-
-    if(cardsChoosen[0] == cardsChoosen[1]){
+    }
+    else if(cardsChoosen[0] == cardsChoosen[1]){
         
         alert("You found a match 😃😃");
         cards[optionOneId].setAttribute('src','Images/white.png');
@@ -87,24 +92,29 @@ function checkMatch(){
         cards[optionTwoId].removeAttribute('click', flipCard);
         cardsWon.push(cardsChoosen);
     }
-
-    else{
+    else
+    {
         cards[optionOneId].setAttribute('src','Images/blank.png');
         cards[optionTwoId].setAttribute('src','Images/blank.png');
         alert('Sorry, Try again 🥲🥲')
     }
     cardsChoosen=[];
     cardsChoosenIDs=[];
+    result.textContent= cardsWon.length
+    
+    if(cardsWon.length == cardArray.length/2){
+        result.textContent = 'Congratulations you found them all!'
+    }
 }
 
 
 function flipCard(){
-    const cardID = this.getAttribute('data-id');
+    let cardID = this.getAttribute('data-id');
     cardsChoosen.push(cardArray[cardID].name);
     cardsChoosenIDs.push(cardID);
     this.setAttribute('src',cardArray[cardID].img)
     if(cardsChoosen.length == 2){
-        setTimeout(checkMatch(),700)
+        setTimeout(checkMatch(),500)
     }
 
 }
