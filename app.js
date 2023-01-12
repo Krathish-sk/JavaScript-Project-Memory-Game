@@ -86,8 +86,8 @@ function checkMatch(){
     else if(cardsChoosen[0] == cardsChoosen[1]){
         
         alert("You found a match 😃😃");
-        cards[optionOneId].setAttribute('src','Images/white.png');
-        cards[optionTwoId].setAttribute('src','Images/white.png');
+        cards[optionOneId].setAttribute('src','Images/tick (Custom).png');
+        cards[optionTwoId].setAttribute('src','Images/tick (Custom).png');
         cards[optionOneId].removeAttribute('click', flipCard);
         cards[optionTwoId].removeAttribute('click', flipCard);
         cardsWon.push(cardsChoosen);
