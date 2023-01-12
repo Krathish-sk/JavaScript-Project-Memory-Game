@@ -1,3 +1,14 @@
+let popUp = document.getElementById('popUp')
+function openPopUp(){
+    popUp.classList.add("open-popUp");
+}
+
+
+
+
+
+
+
 const cardArray=[
 {
     name:'cheeseburger',
@@ -104,6 +115,7 @@ function checkMatch(){
     
     if(cardsWon.length == cardArray.length/2){
         result.textContent = 'Congratulations you found them all!'
+        openPopUp();
     }
 }
 
@@ -118,5 +130,6 @@ function flipCard(){
     }
 
 }
-
 createBoard();
+
+
