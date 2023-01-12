@@ -3,4 +3,8 @@
     height:300px;
     display:flexbox;
     flex-wrap: wrap;
+    margin: auto; 
+    border: 3px solid #73AD21;
+    padding-bottom: 0.7rem;
+    padding-top:0.2rem
 }
