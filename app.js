@@ -118,10 +118,9 @@ function checkMatch(){
     }
     cardsChoosen=[];
     cardsChoosenIDs=[];
-    result.textContent= cardsWon.length
+    
     
     if(cardsWon.length == cardArray.length/2){
-        result.textContent = 'Congratulations you found them all!'
         openPopUp();
     }
 }

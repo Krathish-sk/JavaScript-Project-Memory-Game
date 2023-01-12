@@ -7,15 +7,16 @@
     <title>Memory Game</title>
     <link href="styles.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
-    <h3>Score :- <span id="result"></span></h3>
+<body style="background-color: rgb(251 191 36);">
 
+    <div style="padding-top: 5rem;">
     <div id="grid" style="text-align:center"></div>
-
+    </div>
     <div class="pop" id="popUp">
-        <h2>Congrats </h2>
-        <p>You Won the match</p>
-        <button type="button" id="removePop">Ok</button>
+        <h2>Congratulations </h2>
+        <p style="font-size:25px">You Found them all !! <br>✌️✌️✌️</p>
+        <button type="button" onclick="window.location.reload()" id="playAgain">Play again</button>
+        <button type="button" id="removePop">Close</button>
     </div>
 
     <script src="app.js"></script>
