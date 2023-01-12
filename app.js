@@ -69,12 +69,14 @@ const grid = document.querySelector('#grid');
 
 
 function checkMatch(){
-    const cards = document.querySelectorAll('img')
+    const cards = document.querySelectorAll('#grid img')
     if(cardsChoosen[0] == cardsChoosen[1]){
         
         alert("You found a match 😃😃");
         cards[cardsChoosenIDs[0]].setAttribute('src','Images/white.png');
         cards[cardsChoosenIDs[1]].setAttribute('src','Images/white.png');
+        cards[cardsChoosenIDs[0]].removeAttribute('click', flipCard);
+        cards[cardsChoosenIDs[1]].removeAttribute('click', flipCard);
     }
     else{
         alert('Try again 🥲🥲')
@@ -88,7 +90,7 @@ function flipCard(){
     cardsChoosenIDs.push(cardID);
     this.setAttribute('src',cardArray[cardID].img)
     if(cardsChoosen.length == 2){
-        setTimeout(checkMatch(),500)
+        setTimeout(checkMatch(),700)
     }
 
 }
