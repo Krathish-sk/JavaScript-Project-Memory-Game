@@ -14,8 +14,6 @@ popRemove.addEventListener('click', closePop);
 
 
 
-
-
 const cardArray=[
 {
     name:'cheeseburger',
@@ -75,8 +73,6 @@ let cardsChoosenIDs=[];
 const cardsWon =[];
 
 
-console.log(cardArray)
-
 
   //create your board
   function createBoard() {
@@ -94,12 +90,11 @@ function checkMatch(){
     const cards = document.querySelectorAll('#grid img')
     const optionOneId = cardsChoosenIDs[0];
     const optionTwoId = cardsChoosenIDs[1];
-    console.log(optionOneId);
-    console.log(optionTwoId);
     if(optionOneId == optionTwoId){
         cards[optionOneId].setAttribute('src','Images/blank.png');
         cards[optionTwoId].setAttribute('src','Images/blank.png');
         alert('Oops, you clicked the same image 🤭🤭!!');
+       
     }
     else if(cardsChoosen[0] == cardsChoosen[1]){
         
@@ -137,5 +132,7 @@ function flipCard(){
 
 }
 createBoard();
+
+
 
 
